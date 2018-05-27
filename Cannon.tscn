@@ -7,6 +7,7 @@
 script = ExtResource( 1 )
 min_rotation = 3.14159
 max_rotation = 3.14159
+power = 300
 
 [node name="Platform" type="Polygon2D" parent="." index="0"]
 

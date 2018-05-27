@@ -2,6 +2,7 @@ extends Node2D
 
 export (float) var min_rotation = PI # Clockwise, from 0 to pi
 export (float) var max_rotation = PI # Counterclockwise, from 0 to pi
+export (float) var power = 300
 
 var aim_angle = min_rotation
 

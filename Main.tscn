@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 128.383, 79.9965 )
+extents = Vector2( 16.8398, 79.9965 )
 
 [node name="Main" type="Node2D" index="0"]
 
@@ -25,18 +25,20 @@ _sections_unfolded = [ "Region" ]
 
 [node name="Goal" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 509.695, 570.637 )
+position = Vector2( 802.956, 554.794 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Ball" parent="." index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 513.389, 261.32 )
+position = Vector2( 526.389, 369.32 )
 bounce = 0.4
 contacts_reported = 5
 contact_monitor = true
 
 [node name="Area2D" type="Area2D" parent="." index="3"]
 
-position = Vector2( 499.723, 411.08 )
+position = Vector2( 526.723, 430.08 )
+scale = Vector2( 1, 2.78372 )
 input_pickable = true
 space_override = 3
 gravity_vec = Vector2( 0, -1 )
@@ -45,13 +47,18 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
+scale = Vector2( 1, 0.215927 )
 shape = SubResource( 1 )
 
 [node name="Cannon" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 90.8586, 565.096 )
+power = 500.0
 
 

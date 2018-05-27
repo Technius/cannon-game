@@ -15,4 +15,4 @@ func _input(event):
 			var proj = preload("res://Projectile.tscn").instance()
 			proj.position = $Cannon.position
 			add_child(proj)
-			proj.apply_impulse(Vector2(0, 0), Vector2(200, 0).rotated($Cannon/Barrel.rotation))
+			proj.apply_impulse(Vector2(0, 0), Vector2($Cannon.power, 0).rotated($Cannon/Barrel.rotation))
