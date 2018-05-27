@@ -5,11 +5,7 @@
 [ext_resource path="res://Goal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Cannon.tscn" type="PackedScene" id=5]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 16.8398, 79.9965 )
+[ext_resource path="res://objects/StonePillar.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D" index="0"]
 
@@ -25,40 +21,23 @@ _sections_unfolded = [ "Region" ]
 
 [node name="Goal" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 802.956, 554.794 )
+position = Vector2( 582.884, 423.655 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Ball" parent="." index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 526.389, 369.32 )
+position = Vector2( 499.257, 381.379 )
 bounce = 0.4
 contacts_reported = 5
 contact_monitor = true
 
-[node name="Area2D" type="Area2D" parent="." index="3"]
+[node name="Cannon" parent="." index="3" instance=ExtResource( 5 )]
 
-position = Vector2( 526.723, 430.08 )
-scale = Vector2( 1, 2.78372 )
-input_pickable = true
-space_override = 3
-gravity_vec = Vector2( 0, -1 )
-gravity = 120.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-
-scale = Vector2( 1, 0.215927 )
-shape = SubResource( 1 )
-
-[node name="Cannon" parent="." index="4" instance=ExtResource( 5 )]
-
-position = Vector2( 90.8586, 565.096 )
+position = Vector2( 101.41, 406.825 )
 power = 500.0
+
+[node name="StonePillar" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 500.438, 523.048 )
 
 
