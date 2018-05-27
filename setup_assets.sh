@@ -31,7 +31,7 @@ copy_ar_file() {
 
 copy_ar_dir() {
     mkdir -p "$ASSETS_DIR/$1"
-    cp -p -R "$DOWNLOAD_DIR/$1" -t "$ASSETS_DIR/$(dirname $1)"
+    rsync -r "$DOWNLOAD_DIR/$1/" "$ASSETS_DIR/$1/"
 }
 
 download_archive https://opengameart.org/sites/default/files/UIpack.zip UIpack.zip kenney_ui_pack
