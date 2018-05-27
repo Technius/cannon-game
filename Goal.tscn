@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 48.3427, 11.6709 )
 
-[node name="Goal" type="StaticBody2D" groups=[
+[node name="Goal" type="StaticBody2D" index="0" groups=[
 "goal",
 ]]
 
@@ -21,11 +21,7 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-
-shape = SubResource( 1 )
-
-[node name="FlagSprite" type="Sprite" parent="." index="1"]
+[node name="FlagSprite" type="Sprite" parent="." index="0"]
 
 position = Vector2( 13.9577, -29.8108 )
 scale = Vector2( 0.557603, 0.557603 )
@@ -34,7 +30,7 @@ region_enabled = true
 region_rect = Rect2( 350, 140, 70, 70 )
 _sections_unfolded = [ "Region" ]
 
-[node name="BaseSprite" type="Sprite" parent="." index="2"]
+[node name="BaseSprite" type="Sprite" parent="." index="1"]
 
 position = Vector2( 0.153348, -0.447714 )
 scale = Vector2( 0.446128, 0.333239 )
@@ -42,5 +38,9 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 350, 220, 70 )
 _sections_unfolded = [ "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+shape = SubResource( 1 )
 
 

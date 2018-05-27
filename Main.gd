@@ -5,6 +5,7 @@ func _ready():
 
 func ball_collide(other):
 	if other.is_in_group("goal"):
+		$WinPopup.show()
 		print("you win")
 
 func _input(event):
