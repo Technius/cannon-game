@@ -1,4 +1,5 @@
 extends Node2D
+var show_window = true
 
 func _ready():
 	$Ball.connect("body_entered", self, "ball_collide")
@@ -6,10 +7,13 @@ func _ready():
 
 func ball_collide(other):
 	if other.is_in_group("goal"):
-		$WinPopup.show()
+		if show_window:
+			$WinPopup.show()
+			show_window = false
 		print("you win")
 
 func _input(event):
+	var cannon_power = $Cannon.set_speed()
 	if event is InputEventMouseMotion:
 		$Cannon.set_target(event.position)
 	elif event is InputEventMouseButton:
@@ -17,7 +21,8 @@ func _input(event):
 			var proj = preload("res://Projectile.tscn").instance()
 			proj.position = $Cannon.position +  Vector2(0,-12)
 			add_child(proj)
-			proj.apply_impulse(Vector2(0, 0), Vector2($Cannon.power, 0).rotated($Cannon/Barrel.rotation))
+			proj.apply_impulse(Vector2(0, 0), Vector2(cannon_power, 0).rotated($Cannon/Barrel.rotation))
 
 func reset_level():
 	get_tree().reload_current_scene()
+
