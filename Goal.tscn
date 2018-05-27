@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/kenney_physics_assets/Spritesheet/spritesheet_tiles.png" type="Texture" id=1]
+[ext_resource path="res://assets/kenney_physics_assets/Spritesheet/spritesheet_metal.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 48.3427, 11.6709 )
+
+[node name="Goal" type="StaticBody2D" groups=[
+"goal",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+
+[node name="FlagSprite" type="Sprite" parent="." index="1"]
+
+position = Vector2( 13.9577, -29.8108 )
+scale = Vector2( 0.557603, 0.557603 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 350, 140, 70, 70 )
+_sections_unfolded = [ "Region" ]
+
+[node name="BaseSprite" type="Sprite" parent="." index="2"]
+
+position = Vector2( 0.153348, -0.447714 )
+scale = Vector2( 0.446128, 0.333239 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 350, 220, 70 )
+_sections_unfolded = [ "Region" ]
+
+

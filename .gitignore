@@ -1,0 +1,10 @@
+.import/
+/assets_download/
+
+# Assets
+*.png
+*.zip
+*.wav
+*.ogg
+*.mp3
+/assets/**/*.xml
