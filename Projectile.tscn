@@ -7,8 +7,9 @@
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Projectile" type="RigidBody2D" groups=[
+[node name="Projectile" type="RigidBody2D" index="0" groups=[
 "projectile",
+"level_object",
 ]]
 
 input_pickable = false

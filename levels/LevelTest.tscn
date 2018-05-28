@@ -4,8 +4,8 @@
 [ext_resource path="res://Goal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Cannon.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Cannon.gd" type="Script" id=5]
-[ext_resource path="res://objects/StonePillar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/StonePillar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/RoundBomb.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -43,60 +43,25 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1026, 1020 )
 _sections_unfolded = [ "Region" ]
 
-[node name="Goal" type="StaticBody2D" parent="." index="1" groups=[
-"goal",
-] instance=ExtResource( 2 )]
+[node name="Goal" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 582.884, 427.693 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Ball" type="RigidBody2D" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Ball" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 499.257, 381.379 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
 bounce = 0.4
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
 contacts_reported = 5
 contact_monitor = true
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
 
-[node name="Cannon" type="Node2D" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Cannon" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 101.41, 406.825 )
-script = ExtResource( 5 )
-min_rotation = 3.14159
-max_rotation = 3.14159
-power_factor = 1
 
-[node name="StonePillar" type="StaticBody2D" parent="." index="4" instance=ExtResource( 6 )]
+[node name="StonePillar" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 500.438, 523.048 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
 
 [node name="Path2D" type="Path2D" parent="." index="5"]
 
@@ -116,18 +81,11 @@ cubic_interp = true
 loop = false
 lookahead = 4.0
 
-[node name="StonePillar2" type="StaticBody2D" parent="Path2D/PathFollow2D" index="0" instance=ExtResource( 6 )]
+[node name="StonePillar2" parent="Path2D/PathFollow2D" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 100, -0.00311279 )
 rotation = -1.57083
 scale = Vector2( 0.718751, 1.1875 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D" index="1"]
 
@@ -138,5 +96,10 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/movement = SubResource( 2 )
 blend_times = [  ]
+
+[node name="RoundBomb" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 550, 380 )
+power = 1000.0
 
 
