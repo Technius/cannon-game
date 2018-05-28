@@ -7,10 +7,10 @@ path="res://.import/one.ogg-57e045961d179c57b4c6ed038b624aed.oggstr"
 [deps]
 
 source_file="res://assets/one.ogg"
-source_md5="18fcef3077e38efb7a3e4c1a9bcf5efd"
+source_md5="794d6d02f5a1be59af5ab4eb1b5bf015"
 
 dest_files=[ "res://.import/one.ogg-57e045961d179c57b4c6ed038b624aed.oggstr" ]
-dest_md5="d3f387e597c6b76e904899667dcade6e"
+dest_md5="6354fd7f91be66059f3b2a78cf93e190"
 
 [params]
 

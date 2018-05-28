@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/kenney_physics_assets/PNG/Backgrounds/colored_land.png" type="Texture" id=2]
@@ -33,6 +33,11 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 0.5, 0.0 ]
 }
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 530, 320 )
 
 [node name="Main" type="Node2D" index="0"]
 
@@ -83,7 +88,7 @@ curve = SubResource( 1 )
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" index="0"]
 
 position = Vector2( 970, 140 )
-rotation = 1.5708
+rotation = 1.57081
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -132,5 +137,23 @@ group = null
 text = "Reset Level"
 flat = false
 align = 1
+
+[node name="LevelBounds" type="Area2D" parent="." index="8"]
+
+visible = false
+position = Vector2( 512, 320 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds" index="0"]
+
+position = Vector2( -2, -20 )
+shape = SubResource( 3 )
 
 
