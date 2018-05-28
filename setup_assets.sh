@@ -48,3 +48,7 @@ if [ ! -f $ASSETS_DIR/one.ogg ]; then
     ffmpeg -i $ASSETS_DIR/one.mp3 $ASSETS_DIR/one.ogg
     rm $ASSETS_DIR/one.mp3
 fi
+
+download_file https://opengameart.org/sites/default/files/TRAPS_0.png TRAPS.png
+
+download_file https://opengameart.org/sites/default/files/dannorder-lab%20rat%20labyrinth-cc0.png lab_rat_labyrinth.png

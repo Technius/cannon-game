@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/kenney_physics_assets/PNG/Backgrounds/colored_land.png" type="Texture" id=1]
+[ext_resource path="res://Goal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Cannon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/StonePillar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/RotatingSaw.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 308.916, 575.937, 0, 0, 0, 0, 306.898, 294.767, 0, 0, 0, 0, 617.04, 294.766 )
+}
+
+[node name="LevelTest" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 508.977, 335.178 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1026, 1020 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Goal" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 659.714, 481.682 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Ball" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 362.209, 423.947 )
+bounce = 0.4
+contacts_reported = 5
+contact_monitor = true
+
+[node name="Cannon" parent="." index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 116.465, 454.065 )
+
+[node name="StonePillar" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 361.313, 491.381 )
+rotation = 1.5708
+
+[node name="Path2D2" type="Path2D" parent="." index="5"]
+
+position = Vector2( 223.835, 2.32513 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="Path2D2" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 365.949, 294.767 )
+
+
