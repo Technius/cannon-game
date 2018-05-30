@@ -1,5 +1,6 @@
 .import/
 /assets_download/
+/dist
 
 # Assets
 *.png
