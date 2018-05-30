@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 18.7424
 
 [node name="Ball" type="RigidBody2D" groups=[
 "level_object",
@@ -30,11 +30,7 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="." index="1"]
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
 
 visible = false
 polygon = PoolVector2Array( 10, 0, 5, 8.66, -5, 8.66, -10, 0, -5, -8.66, 5, -8.66 )
@@ -50,12 +46,16 @@ texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
 
-[node name="Sprite" type="Sprite" parent="." index="2"]
+[node name="Sprite" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 0.282041, 0.282041 )
+scale = Vector2( 0.532831, 0.532831 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 210, 70, 70, 70 )
 _sections_unfolded = [ "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+shape = SubResource( 1 )
 
 

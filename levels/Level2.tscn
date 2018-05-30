@@ -10,22 +10,34 @@
 
 position = Vector2( -0.703613, 0 )
 
-[node name="Background" type="Sprite" parent="." index="0"]
+[node name="Background" type="TextureRect" parent="." index="0"]
 
-position = Vector2( 508.977, 335.178 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -10.0
+margin_top = -40.0
+margin_right = 1273.0
+margin_bottom = 984.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1026, 1020 )
+stretch_mode = 2
 _sections_unfolded = [ "Region" ]
 
 [node name="Goal" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 886.493, 560.733 )
+position = Vector2( 1034.21, 557.718 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Ball" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 352.039, 477.643 )
+position = Vector2( 499.758, 474.628 )
 friction = 0.0
 bounce = 0.4
 contacts_reported = 5
@@ -33,26 +45,26 @@ contact_monitor = true
 
 [node name="Cannon" parent="." index="3" instance=ExtResource( 4 )]
 
-position = Vector2( 149.562, 563.617 )
+position = Vector2( 297.281, 560.602 )
 
 [node name="StaticBody" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 334, 560 )
+position = Vector2( 481.719, 556.985 )
 
 [node name="StaticBody2" parent="." index="5" instance=ExtResource( 5 )]
 
-position = Vector2( 448, 560 )
+position = Vector2( 595.719, 556.985 )
 
 [node name="StaticBody3" parent="." index="6" instance=ExtResource( 5 )]
 
-position = Vector2( 560, 560 )
+position = Vector2( 707.719, 556.985 )
 
 [node name="StaticBody4" parent="." index="7" instance=ExtResource( 5 )]
 
-position = Vector2( 670, 560 )
+position = Vector2( 817.719, 556.985 )
 
 [node name="StaticBody5" parent="." index="8" instance=ExtResource( 5 )]
 
-position = Vector2( 780, 560 )
+position = Vector2( 927.719, 556.985 )
 
 

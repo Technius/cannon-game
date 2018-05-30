@@ -5,11 +5,11 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 15.0595
 
-[node name="Projectile" type="RigidBody2D" index="0" groups=[
-"projectile",
+[node name="Projectile" type="RigidBody2D" groups=[
 "level_object",
+"projectile",
 ]]
 
 input_pickable = false
@@ -34,7 +34,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="spritesheet_wood" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 0.294438, 0.294438 )
+scale = Vector2( 0.433185, 0.433185 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 570, 640, 70, 70 )
@@ -43,21 +43,5 @@ _sections_unfolded = [ "Region", "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="." index="2"]
-
-visible = false
-polygon = PoolVector2Array( 10, 10, 10, -10, -10, -10, -10, 10 )
-uv = PoolVector2Array(  )
-color = Color( 1, 1, 1, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
 
 

@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32.4504, 108 )
+extents = Vector2( 35.6458, 109.938 )
 
 [node name="StonePillar" type="StaticBody2D"]
 
