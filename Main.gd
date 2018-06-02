@@ -2,7 +2,7 @@ extends Node2D
 
 signal return_level_select
 
-var show_window = true
+var show_win_popup = true
 
 var level = null
 export (PackedScene) var level_scene = preload("res://levels/LevelTest.tscn")
@@ -20,9 +20,9 @@ func _ready():
 
 func ball_collide(other):
 	if other.is_in_group("goal"):
-		if show_window:
+		if self.show_win_popup:
 			$WinPopup.show()
-			show_window = false
+			self.show_win_popup = false
 		print("you win")
 
 func _input(event):
@@ -42,7 +42,8 @@ func reset_level():
 		level.queue_free()
 	level = level_scene.instance()
 	$LevelContainer.add_child(level)
-
+	
+	self.show_win_popup = true
 	cannon = level.get_node("Cannon")
 	level.get_node("Ball").connect("body_entered", self, "ball_collide")
 
