@@ -13,9 +13,15 @@ func _ready():
 		button.text = l
 		button.connect("button_down", self, "on_set_level_button", [l])
 		$Menu/Grid.add_child(button)
+	$Main.connect("return_level_select", self, "on_return_level_select")
 
 func on_set_level_button(level):
 	$Main.level_scene = levels[level]
 	$Menu.visible = false
 	$Main.reset_level()
+	$Main.set_gui_visible(true)
 	get_tree().paused = false
+
+func on_return_level_select():
+	get_tree().paused = true
+	$Menu.visible = true

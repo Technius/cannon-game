@@ -1,5 +1,7 @@
 extends Node2D
 
+signal return_level_select
+
 var show_window = true
 
 var level = null
@@ -10,8 +12,11 @@ func _ready():
 	assert(level_scene != null)
 	level = $LevelContainer/DefaultLevel
 	self.reset_level()
-	$GUI/ResetButton.connect("button_down", self, "reset_level")
+	$GUI/Controls/ResetButton.connect("button_down", self, "reset_level")
+	$GUI/Controls/LevelSelectButton.connect("button_down", self, "on_return_level_select")
 	$LevelBounds.connect("body_exited", self, "on_object_oob")
+	$WinPopup/Controls/LevelSelectButton.connect("button_down", self, "on_return_level_select")
+	self.set_gui_visible(false)
 
 func ball_collide(other):
 	if other.is_in_group("goal"):
@@ -48,3 +53,13 @@ func on_object_oob(object):
 			level.remove_child(object)
 	elif object == level.get_node("Ball"):
 		print("You lose")
+
+func on_return_level_select():
+	set_gui_visible(false)
+	self.emit_signal("return_level_select")
+
+func set_gui_visible(visible):
+	if visible:
+		$GUI.show()
+	else:
+		$GUI.hide()

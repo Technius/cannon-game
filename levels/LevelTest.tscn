@@ -33,7 +33,7 @@ tracks/0/keys = {
 "values": [ 0.0, 0.5, 0.0 ]
 }
 
-[node name="LevelTest" type="Node2D" index="0"]
+[node name="LevelTest" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="." index="0"]
 

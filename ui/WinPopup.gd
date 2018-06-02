@@ -1,4 +1,5 @@
 extends WindowDialog
 
 func _ready():
-	$CloseButton.connect("button_down", self, "hide")
+	$Controls/CloseButton.connect("button_down", self, "hide")
+	$Controls/LevelSelectButton.connect("button_down", self, "hide")
