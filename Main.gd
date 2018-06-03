@@ -26,7 +26,7 @@ func ball_collide(other):
 		print("you win")
 
 func _input(event):
-	var cannon_power = cannon.set_speed()
+	var cannon_power = cannon.get_power(get_viewport().get_mouse_position())
 	if event is InputEventMouseMotion:
 		cannon.set_target(event.position)
 	elif event is InputEventMouseButton:
