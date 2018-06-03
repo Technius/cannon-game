@@ -23,6 +23,10 @@ window/size/test_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
+[gui]
+
+theme/custom_font="res://Font.tres"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
