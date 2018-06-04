@@ -128,7 +128,7 @@ wait_time = 15.0
 one_shot = false
 autostart = true
 
-[node name="Label" type="Label" parent="." index="6"]
+[node name="TimeLeft" type="Label" parent="." index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0

@@ -3,7 +3,9 @@ extends Node2D
 var levels = {
 	"LevelTest": preload("res://levels/LevelTest.tscn"),
 	"Level2": preload("res://levels/Level2.tscn"),
-	"Level3": preload("res://levels/Level3.tscn")
+	"Level3": preload("res://levels/Level3.tscn"),
+	"Level4": preload("res://levels/Level4.tscn"),
+	"Level5": preload("res://levels/Level5.tscn")
 }
 
 func _ready():

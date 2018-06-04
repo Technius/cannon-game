@@ -6,7 +6,6 @@
 [ext_resource path="res://Cannon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/StonePillar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/RoundBomb.tscn" type="PackedScene" id=6]
-[ext_resource path="res://objects/StoneBlock.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -16,6 +15,25 @@ _data = {
 }
 
 [sub_resource type="Animation" id=2]
+
+resource_name = "movement"
+length = 5.05
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:unit_offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.5, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
 
 resource_name = "movement"
 length = 5.05
@@ -58,27 +76,34 @@ _sections_unfolded = [ "Region" ]
 
 [node name="Goal" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 721.559, 432.215 )
+position = Vector2( 1127.41, 425.534 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Ball" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 630.176, 398.089 )
+position = Vector2( 701.994, 486.609 )
 bounce = 0.4
 contacts_reported = 5
 contact_monitor = true
 
 [node name="Cannon" parent="." index="3" instance=ExtResource( 4 )]
 
-position = Vector2( 240.085, 411.347 )
+position = Vector2( 123.172, 377.943 )
 
 [node name="StonePillar" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 639.113, 527.57 )
+position = Vector2( 694.229, 539.261 )
+rotation = 1.5708
 
-[node name="Path2D" type="Path2D" parent="." index="5"]
+[node name="StonePillar2" parent="." index="5" instance=ExtResource( 5 )]
 
-position = Vector2( 109.583, -1.62964 )
+position = Vector2( 884.63, 469.114 )
+rotation = 0.785398
+
+[node name="Path2D" type="Path2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( -595.234, 202.133 )
 scale = Vector2( 1, 0.97561 )
 curve = SubResource( 1 )
 
@@ -110,12 +135,43 @@ playback_speed = 1.0
 anims/movement = SubResource( 2 )
 blend_times = [  ]
 
-[node name="RoundBomb" parent="." index="6" instance=ExtResource( 6 )]
+[node name="Path2D2" type="Path2D" parent="." index="7"]
 
-position = Vector2( 688.675, 384.522 )
+editor/display_folded = true
+position = Vector2( -595.234, -105.181 )
+scale = Vector2( 1, 0.97561 )
+curve = SubResource( 1 )
 
-[node name="StoneBlock" parent="." index="7" instance=ExtResource( 7 )]
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2" index="0"]
 
-position = Vector2( 675.951, 33.4964 )
+position = Vector2( 970, 140 )
+rotation = 1.5708
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="StonePillar2" parent="Path2D2/PathFollow2D" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 100, -0.00311279 )
+rotation = -1.57083
+scale = Vector2( 0.718751, 1.1875 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D2/PathFollow2D" index="1"]
+
+root_node = NodePath("..")
+autoplay = "movement"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/movement = SubResource( 3 )
+blend_times = [  ]
+
+[node name="RoundBomb" parent="." index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 638.57, 463.021 )
 
 

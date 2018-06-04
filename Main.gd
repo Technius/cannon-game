@@ -4,8 +4,8 @@ signal return_level_select
 
 var show_win_popup = true
 
-onready var timer = get_node("Timer")
-onready var timer_label = get_node("Label")
+onready var time_label = get_node("TimeLeft")
+onready var game_timer = get_node("Timer")
 
 var level = null
 export (PackedScene) var level_scene = preload("res://levels/LevelTest.tscn")
@@ -24,10 +24,11 @@ func _ready():
 	self.set_gui_visible(false)
 
 func _process(delta):
-	if int(timer.get_time_left()) == 0:
-		timer.stop()
+	if int(game_timer.get_time_left()) == 0:
+		game_timer.stop()
 		$LosePopup.show()
-	timer_label.set_text(str(int(timer.get_time_left())))
+	time_label.set_text(str(int(game_timer.get_time_left())))
+
 
 func ball_collide(other):
 	if other.is_in_group("goal"):
@@ -36,6 +37,7 @@ func ball_collide(other):
 			self.show_win_popup = false
 		print("you win")
 	elif other.is_in_group("saw"):
+		print("You lose")
 		$LosePopup.show()
 
 func _input(event):
@@ -58,7 +60,7 @@ func reset_level():
 	self.show_win_popup = true
 	cannon = level.get_node("Cannon")
 	level.get_node("Ball").connect("body_entered", self, "ball_collide")
-	timer.start()
+	game_timer.start()
 
 # When an object leaves the level bounds
 func on_object_oob(object):
