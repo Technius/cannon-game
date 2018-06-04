@@ -5,16 +5,10 @@
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Cannon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/StonePillar.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/RotatingSaw.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/RoundBomb.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/StoneBlock.tscn" type="PackedScene" id=7]
 
-[sub_resource type="Curve2D" id=1]
-
-bake_interval = 5.0
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 308.916, 575.937, 0, 0, 0, 0, 306.898, 294.767, 0, 0, 0, 0, 617.04, 294.766 )
-}
-
-[node name="LevelTest" type="Node2D"]
+[node name="LevelTest" type="Node2D" index="0"]
 
 [node name="Background" type="TextureRect" parent="." index="0"]
 
@@ -38,32 +32,42 @@ _sections_unfolded = [ "Region" ]
 
 [node name="Goal" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 861.049, 458.556 )
+position = Vector2( 930.274, 545.167 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Ball" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 563.544, 400.821 )
+position = Vector2( 626.493, 150.086 )
 bounce = 0.4
 contacts_reported = 5
 contact_monitor = true
 
 [node name="Cannon" parent="." index="3" instance=ExtResource( 4 )]
 
-position = Vector2( 317.8, 430.939 )
+position = Vector2( 240.085, 411.347 )
 
 [node name="StonePillar" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 562.648, 468.255 )
+position = Vector2( 883.476, 453.739 )
+scale = Vector2( 0.847879, 0.920804 )
+
+[node name="StonePillar2" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 993.972, 456.195 )
+scale = Vector2( 0.847879, 0.920804 )
+
+[node name="StonePillar3" parent="." index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 625.159, 200.825 )
 rotation = 1.5708
+scale = Vector2( 0.847879, 0.364485 )
 
-[node name="Saw" type="Path2D" parent="." index="5"]
+[node name="RoundBomb" parent="." index="7" instance=ExtResource( 6 )]
 
-position = Vector2( 425.17, -20.8013 )
-curve = SubResource( 1 )
+position = Vector2( 865.469, 318.224 )
 
-[node name="PathFollow2D" parent="Saw" index="0" instance=ExtResource( 6 )]
+[node name="StoneBlock" parent="." index="8" instance=ExtResource( 7 )]
 
-position = Vector2( 365.949, 294.767 )
+position = Vector2( 938.687, 320.787 )
 
 

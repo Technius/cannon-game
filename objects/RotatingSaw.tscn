@@ -51,7 +51,9 @@ loop = false
 lookahead = 0.001
 _sections_unfolded = [ "Transform" ]
 
-[node name="StaticBody" type="StaticBody2D" parent="." index="0"]
+[node name="StaticBody" type="StaticBody2D" parent="." index="0" groups=[
+"saw",
+]]
 
 rotation = 3.99419
 input_pickable = false

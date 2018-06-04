@@ -4,6 +4,9 @@ signal return_level_select
 
 var show_win_popup = true
 
+onready var time_label = get_node("TimeLeft")
+onready var game_timer = get_node("Timer")
+
 var level = null
 export (PackedScene) var level_scene = preload("res://levels/LevelTest.tscn")
 var cannon
@@ -16,7 +19,16 @@ func _ready():
 	$GUI/Controls/LevelSelectButton.connect("button_down", self, "on_return_level_select")
 	$LevelBounds.connect("body_exited", self, "on_object_oob")
 	$WinPopup/Controls/LevelSelectButton.connect("button_down", self, "on_return_level_select")
+	$LosePopup/Controls/LevelSelectButton.connect("button_down", self, "on_return_level_select")
+	$LosePopup/Controls/ResetButton.connect("button_down", self, "reset_level")
 	self.set_gui_visible(false)
+
+func _process(delta):
+	if int(game_timer.get_time_left()) == 0:
+		game_timer.stop()
+		$LosePopup.show()
+	time_label.set_text(str(int(game_timer.get_time_left())))
+
 
 func ball_collide(other):
 	if other.is_in_group("goal"):
@@ -24,6 +36,9 @@ func ball_collide(other):
 			$WinPopup.show()
 			self.show_win_popup = false
 		print("you win")
+	elif other.is_in_group("saw"):
+		print("You lose")
+		$LosePopup.show()
 
 func _input(event):
 	var cannon_power = cannon.get_power(get_viewport().get_mouse_position())
@@ -42,18 +57,19 @@ func reset_level():
 		level.queue_free()
 	level = level_scene.instance()
 	$LevelContainer.add_child(level)
-	
 	self.show_win_popup = true
 	cannon = level.get_node("Cannon")
 	level.get_node("Ball").connect("body_entered", self, "ball_collide")
+	game_timer.start()
 
 # When an object leaves the level bounds
 func on_object_oob(object):
 	if object.is_in_group("projectile"):
 		if level.is_a_parent_of(object):
 			level.remove_child(object)
-	elif object == level.get_node("Ball"):
+	elif object == level.get_node("Ball") and self.show_win_popup:
 		print("You lose")
+		$LosePopup.show()
 
 func on_return_level_select():
 	set_gui_visible(false)

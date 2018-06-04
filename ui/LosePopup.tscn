@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://ui/WinPopup.gd" type="Script" id=1]
+[ext_resource path="res://ui/LosePopup.gd" type="Script" id=1]
 
-[node name="WinPopup" type="WindowDialog"]
+[node name="LosePopup" type="WindowDialog"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -17,7 +17,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-window_title = "You win"
+window_title = "You Lose"
 resizable = false
 script = ExtResource( 1 )
 
@@ -39,7 +39,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="CloseButton" type="Button" parent="Controls" index="0"]
+[node name="ResetButton" type="Button" parent="Controls" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -58,7 +58,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Close"
+text = "Reset Level"
 flat = false
 align = 1
 
