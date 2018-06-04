@@ -2,7 +2,7 @@ extends Node2D
 
 signal return_level_select
 
-var show_win_popup = true
+var playing = true
 
 onready var time_label = get_node("TimeLeft")
 onready var game_timer = get_node("Timer")
@@ -24,21 +24,19 @@ func _ready():
 	self.set_gui_visible(false)
 
 func _process(delta):
-	if int(game_timer.get_time_left()) == 0:
-		game_timer.stop()
-		$LosePopup.show()
-	time_label.set_text(str(int(game_timer.get_time_left())))
+	if game_timer.is_stopped():
+		self.lose_level()
+	time_label.set_text("%.1f" % game_timer.get_time_left())
 
 
 func ball_collide(other):
 	if other.is_in_group("goal"):
-		if self.show_win_popup:
+		if self.playing:
 			$WinPopup.show()
-			self.show_win_popup = false
-		print("you win")
+			self.playing = false
+			print("you win")
 	elif other.is_in_group("saw"):
-		print("You lose")
-		$LosePopup.show()
+		self.lose_level()
 
 func _input(event):
 	var cannon_power = cannon.get_power(get_viewport().get_mouse_position())
@@ -53,23 +51,32 @@ func _input(event):
 
 func reset_level():
 	$WinPopup.hide()
+	$LosePopup.hide()
 	if level != null:
 		level.queue_free()
 	level = level_scene.instance()
 	$LevelContainer.add_child(level)
-	self.show_win_popup = true
+	self.playing = true
 	cannon = level.get_node("Cannon")
 	level.get_node("Ball").connect("body_entered", self, "ball_collide")
 	game_timer.start()
+	game_timer.paused = false
+
+# Causes the player to lose if the level is still playing
+func lose_level():
+	if playing:
+		playing = false
+		$LosePopup.show()
+		game_timer.paused = true
+		print("You lose")
 
 # When an object leaves the level bounds
 func on_object_oob(object):
 	if object.is_in_group("projectile"):
 		if level.is_a_parent_of(object):
 			level.remove_child(object)
-	elif object == level.get_node("Ball") and self.show_win_popup:
-		print("You lose")
-		$LosePopup.show()
+	elif object == level.get_node("Ball"):
+		lose_level()
 
 func on_return_level_select():
 	set_gui_visible(false)
