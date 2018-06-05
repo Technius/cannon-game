@@ -125,7 +125,7 @@ shape = SubResource( 1 )
 
 process_mode = 1
 wait_time = 15.0
-one_shot = false
+one_shot = true
 autostart = true
 
 [node name="TimeLeft" type="Label" parent="." index="6"]
