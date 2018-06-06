@@ -53,15 +53,15 @@ position = Vector2( 652.678, 618.009 )
 
 [node name="StonePillar" parent="Walls" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( -68.6684, -55.3571 )
+position = Vector2( -72.678, -48.009 )
 
 [node name="StonePillar2" parent="Walls" index="1" instance=ExtResource( 5 )]
 
-position = Vector2( 57.7241, -57.5732 )
+position = Vector2( 57.322, -58.009 )
 
 [node name="StonePillar8" parent="Walls" index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 217.705, -464.277 )
+position = Vector2( 227.322, -468.009 )
 
 [node name="StonePillar3" parent="Walls" index="3" instance=ExtResource( 5 )]
 
@@ -86,7 +86,7 @@ rotation = 1.5708
 
 [node name="StonePillar10" parent="Walls" index="8" instance=ExtResource( 5 )]
 
-position = Vector2( 257.448, -306.487 )
+position = Vector2( 258.35, -289.339 )
 rotation = 1.5708
 
 [node name="StonePillar9" parent="Walls" index="9" instance=ExtResource( 5 )]
@@ -109,7 +109,7 @@ rotation = 1.5708
 
 [node name="RoundBomb6" parent="." index="8" instance=ExtResource( 6 )]
 
-position = Vector2( 772.853, 253.922 )
+position = Vector2( 773.756, 268.362 )
 rotation = 1.5708
 
 [node name="RoundBomb7" parent="." index="9" instance=ExtResource( 6 )]
