@@ -12,6 +12,15 @@ download_archive() {
     fi
 }
 
+download_archive_7z() {
+    if [ ! -f $DOWNLOAD_DIR/$2 ]; then
+        echo "Downloading $1 and saving to $DOWNLOAD_DIR/$2"
+        curl -L $1 -o $DOWNLOAD_DIR/$2
+        mkdir -p $DOWNLOAD_DIR/$3
+        7z e "$DOWNLOAD_DIR/$2" "-o$DOWNLOAD_DIR/$3"
+    fi
+}
+
 download_file () {
     if [ ! -f $ASSETS_DIR/$2 ]; then
         echo "Downloading $1 and saving to $ASSETS_DIR/$2"
@@ -64,3 +73,6 @@ copy_ar_file 2d_explosions2 'Free Explosion Animations 2/3.png' explosion_3.png
 
 download_archive 'https://opengameart.org/sites/default/files/explosions_1.zip' explosions.zip explosion_sfx
 copy_ar_file explosion_sfx explosion09.wav
+
+download_archive_7z 'https://opengameart.org/sites/default/files/qubodup-vectowers_colorful.7z' vectowers.7z vectowers
+copy_ar_file vectowers vectowcol-missile_l1.svg

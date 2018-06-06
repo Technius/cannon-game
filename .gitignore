@@ -4,6 +4,7 @@
 
 # Assets
 *.png
+*.svg
 *.zip
 *.wav
 *.ogg

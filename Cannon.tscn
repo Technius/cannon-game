@@ -1,44 +1,32 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Cannon.gd" type="Script" id=1]
+[ext_resource path="res://assets/vectowers/vectowcol-missile_l1.svg" type="Texture" id=2]
 
-[node name="Cannon" type="Node2D"]
+[node name="Cannon" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 min_rotation = 3.14159
 max_rotation = 3.14159
 power_factor = 1
 
-[node name="Platform" type="Polygon2D" parent="." index="0"]
+[node name="Base" type="Sprite" parent="." index="0"]
 
-polygon = PoolVector2Array( 80, 10, 80, -10, -80, -10, -80, 10 )
-uv = PoolVector2Array(  )
-color = Color( 0.355469, 0.355469, 0.355469, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
+scale = Vector2( 0.500302, 0.500302 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 10, 81, 100, 79 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
 
-[node name="Barrel" type="Polygon2D" parent="." index="1"]
+[node name="Barrel" type="Sprite" parent="." index="1"]
 
-position = Vector2( 0, -10 )
-polygon = PoolVector2Array( 99.144, -13.053, 99.1439, 13.053, 0, 0 )
-uv = PoolVector2Array(  )
-color = Color( 0.214844, 0.19925, 0.19925, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
-_sections_unfolded = [ "Transform" ]
+position = Vector2( -0.715637, -26.7697 )
+scale = Vector2( 0.435371, 0.435371 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -35, -50 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 240, 80 )
+_sections_unfolded = [ "Offset", "Region" ]
 
 
