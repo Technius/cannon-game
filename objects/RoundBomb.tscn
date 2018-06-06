@@ -13,8 +13,9 @@ radius = 35.7738
 custom_solver_bias = 0.0
 radius = 190.263
 
-[node name="RoundBomb" type="RigidBody2D" index="0" groups=[
+[node name="RoundBomb" type="RigidBody2D" groups=[
 "level_object",
+"bomb",
 ]]
 
 input_pickable = false

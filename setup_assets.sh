@@ -52,3 +52,6 @@ fi
 download_file https://opengameart.org/sites/default/files/TRAPS_0.png TRAPS.png
 
 download_file https://opengameart.org/sites/default/files/dannorder-lab%20rat%20labyrinth-cc0.png lab_rat_labyrinth.png
+
+download_archive 'https://opengameart.org/sites/default/files/free%20explosion%20animations%202.zip' 2d_explosions2.zip 2d_explosions2
+copy_ar_file 2d_explosions2 'Free Explosion Animations 2/3.png' explosion_3.png

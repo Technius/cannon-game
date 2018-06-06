@@ -17,6 +17,7 @@ func _ready():
 	self.reset_level()
 	$GUI/Controls/ResetButton.connect("button_down", self, "reset_level")
 	$GUI/Controls/LevelSelectButton.connect("button_down", self, "on_return_level_select")
+	$LevelBounds.connect("body_entered", self, "on_object_entry")
 	$LevelBounds.connect("body_exited", self, "on_object_oob")
 	$WinPopup/Controls/LevelSelectButton.connect("button_down", self, "on_return_level_select")
 	$LosePopup/Controls/LevelSelectButton.connect("button_down", self, "on_return_level_select")
@@ -70,6 +71,12 @@ func lose_level():
 		game_timer.paused = true
 		print("You lose")
 
+# When an object enters the level bounds (e.g. on level start)
+func on_object_entry(object):
+	if object.is_in_group("bomb"):
+		# Set up bomb explosion animation
+		object.connect("explode", self, "show_explosion", [object])
+
 # When an object leaves the level bounds
 func on_object_oob(object):
 	if object.is_in_group("projectile"):
@@ -77,6 +84,12 @@ func on_object_oob(object):
 			level.remove_child(object)
 	elif object == level.get_node("Ball"):
 		lose_level()
+
+# Adds an explosion animation when a bomb explodes
+func show_explosion(object):
+	var expl = preload("res://effects/ExplosionEffect.tscn").instance()
+	expl.position = object.position
+	self.add_child(expl)
 
 func on_return_level_select():
 	set_gui_visible(false)
