@@ -90,6 +90,7 @@ func show_explosion(object):
 	var expl = preload("res://effects/ExplosionEffect.tscn").instance()
 	expl.position = object.position
 	self.add_child(expl)
+	$SFX.play()
 
 func on_return_level_select():
 	set_gui_visible(false)

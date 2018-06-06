@@ -61,3 +61,6 @@ download_file https://opengameart.org/sites/default/files/dannorder-lab%20rat%20
 
 download_archive 'https://opengameart.org/sites/default/files/free%20explosion%20animations%202.zip' 2d_explosions2.zip 2d_explosions2
 copy_ar_file 2d_explosions2 'Free Explosion Animations 2/3.png' explosion_3.png
+
+download_archive 'https://opengameart.org/sites/default/files/explosions_1.zip' explosions.zip explosion_sfx
+copy_ar_file explosion_sfx explosion09.wav
