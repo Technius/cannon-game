@@ -1,28 +1,37 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://levels/Level2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://levels/LevelTest.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ui/WinPopup.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ui/LosePopup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/green_hills.ogg" type="AudioStream" id=3]
+[ext_resource path="res://levels/LevelTest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/WinPopup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/LosePopup.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 639.017, 320 )
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 level_scene = ExtResource( 2 )
 
-[node name="LevelContainer" type="Node2D" parent="." index="0"]
+[node name="BGM" type="AudioStreamPlayer" parent="." index="0"]
 
-[node name="DefaultLevel" parent="LevelContainer" index="0" instance=ExtResource( 3 )]
+stream = ExtResource( 3 )
+volume_db = -10.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="LevelContainer" type="Node2D" parent="." index="1"]
+
+[node name="DefaultLevel" parent="LevelContainer" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 0.468262, 0.468201 )
 
-[node name="WinPopup" parent="." index="1" instance=ExtResource( 4 )]
+[node name="WinPopup" parent="." index="2" instance=ExtResource( 5 )]
 
 visible = false
 margin_left = 546.0
@@ -30,7 +39,7 @@ margin_top = 538.0
 margin_right = 695.0
 margin_bottom = 638.0
 
-[node name="LosePopup" parent="." index="2" instance=ExtResource( 5 )]
+[node name="LosePopup" parent="." index="3" instance=ExtResource( 6 )]
 
 visible = false
 margin_left = 552.0
@@ -38,7 +47,7 @@ margin_top = 513.0
 margin_right = 701.0
 margin_bottom = 613.0
 
-[node name="GUI" type="Node2D" parent="." index="3"]
+[node name="GUI" type="Node2D" parent="." index="4"]
 
 [node name="Controls" type="VBoxContainer" parent="GUI" index="0"]
 
@@ -103,7 +112,7 @@ text = "Level Select"
 flat = false
 align = 1
 
-[node name="LevelBounds" type="Area2D" parent="." index="4"]
+[node name="LevelBounds" type="Area2D" parent="." index="5"]
 
 position = Vector2( 641.164, 391.821 )
 scale = Vector2( 1.03251, 1.20502 )
@@ -121,14 +130,14 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( -2, -20 )
 shape = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="." index="5"]
+[node name="Timer" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 15.0
 one_shot = true
 autostart = true
 
-[node name="TimeLeft" type="Label" parent="." index="6"]
+[node name="TimeLeft" type="Label" parent="." index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -150,7 +159,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors" ]
 
-[node name="Label2" type="Label" parent="." index="7"]
+[node name="Label2" type="Label" parent="." index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0

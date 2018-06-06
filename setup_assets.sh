@@ -49,6 +49,12 @@ if [ ! -f $ASSETS_DIR/one.ogg ]; then
     rm $ASSETS_DIR/one.mp3
 fi
 
+if [ ! -f $ASSETS_DIR/green_hills.ogg ]; then
+    download_file 'https://opengameart.org/sites/default/files/Green%20Hills.mp3' green_hills.mp3
+    ffmpeg -i $ASSETS_DIR/green_hills.mp3 $ASSETS_DIR/green_hills.ogg
+    rm $ASSETS_DIR/green_hills.mp3
+fi
+
 download_file https://opengameart.org/sites/default/files/TRAPS_0.png TRAPS.png
 
 download_file https://opengameart.org/sites/default/files/dannorder-lab%20rat%20labyrinth-cc0.png lab_rat_labyrinth.png
