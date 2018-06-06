@@ -9,7 +9,7 @@
 [ext_resource path="res://objects/StoneBlock.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/WoodBlock.tscn" type="PackedScene" id=8]
 
-[node name="Level6" type="Node2D" index="0"]
+[node name="Level6" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="." index="0"]
 

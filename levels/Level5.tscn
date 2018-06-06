@@ -8,7 +8,7 @@
 [ext_resource path="res://objects/RoundBomb.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/StoneBlock.tscn" type="PackedScene" id=7]
 
-[node name="LevelTest" type="Node2D" index="0"]
+[node name="LevelTest" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="." index="0"]
 
