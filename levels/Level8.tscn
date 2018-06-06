@@ -14,7 +14,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 728.727, 791.917, 0, 0, 0, 0, 728.727, 298.366, 0, 0, 0, 0, 289.197, 299.594 )
 }
 
-[node name="LevelTest" type="Node2D" index="0"]
+[node name="LevelTest" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="." index="0"]
 

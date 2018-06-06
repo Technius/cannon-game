@@ -12,7 +12,7 @@ radius = 35.7738
 custom_solver_bias = 0.0
 radius = 190.263
 
-[node name="Magnet" type="RigidBody2D" groups=[
+[node name="Magnet" type="RigidBody2D" index="0" groups=[
 "level_object",
 "bomb",
 ]]
@@ -51,7 +51,7 @@ shape = SubResource( 1 )
 [node name="AttractionArea" type="Area2D" parent="." index="2"]
 
 input_pickable = true
-space_override = 3
+space_override = 1
 gravity_point = true
 gravity_vec = Vector2( 0, 0 )
 gravity = 500.0

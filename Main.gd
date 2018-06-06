@@ -46,7 +46,7 @@ func _input(event):
 	elif event is InputEventMouseButton:
 		if event.pressed and event.button_index == BUTTON_LEFT:
 			var proj = preload("res://Projectile.tscn").instance()
-			proj.position = cannon.position +  Vector2(0,-12)
+			proj.position = cannon.position +  Vector2(0,-22)
 			level.add_child(proj)
 			proj.apply_impulse(Vector2(0, 0), Vector2(cannon_power, 0).rotated(cannon.get_node("Barrel").rotation))
 
