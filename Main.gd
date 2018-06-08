@@ -43,6 +43,7 @@ func _input(event):
 	var cannon_power = cannon.get_power(get_viewport().get_mouse_position())
 	if event is InputEventMouseMotion:
 		cannon.set_target(event.position)
+		cannon.get_node("PowerIndicator").value = 100 * cannon.get_power(event.position) / cannon.max_power
 	elif event is InputEventMouseButton:
 		if event.pressed and event.button_index == BUTTON_LEFT:
 			var proj = preload("res://Projectile.tscn").instance()
