@@ -1,25 +1,26 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://levels/Level2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/explosion_sfx/explosion09.wav" type="AudioStream" id=3]
-[ext_resource path="res://levels/LevelTest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ui/WinPopup.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ui/LosePopup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/green_hills.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/explosion_sfx/explosion09.wav" type="AudioStream" id=4]
+[ext_resource path="res://levels/LevelTest.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/WinPopup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/LosePopup.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 639.017, 320 )
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 level_scene = ExtResource( 2 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="." index="0"]
 
-stream = null
+stream = ExtResource( 3 )
 volume_db = -10.0
 autoplay = true
 mix_target = 0
@@ -27,7 +28,7 @@ bus = "Master"
 
 [node name="SFX" type="AudioStreamPlayer" parent="." index="1"]
 
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -35,11 +36,11 @@ bus = "Master"
 
 [node name="LevelContainer" type="Node2D" parent="." index="2"]
 
-[node name="DefaultLevel" parent="LevelContainer" index="0" instance=ExtResource( 4 )]
+[node name="DefaultLevel" parent="LevelContainer" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 0.468262, 0.468201 )
 
-[node name="WinPopup" parent="." index="3" instance=ExtResource( 5 )]
+[node name="WinPopup" parent="." index="3" instance=ExtResource( 6 )]
 
 visible = false
 margin_left = 546.0
@@ -47,7 +48,7 @@ margin_top = 538.0
 margin_right = 695.0
 margin_bottom = 638.0
 
-[node name="LosePopup" parent="." index="4" instance=ExtResource( 6 )]
+[node name="LosePopup" parent="." index="4" instance=ExtResource( 7 )]
 
 visible = false
 margin_left = 552.0
