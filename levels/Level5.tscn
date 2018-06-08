@@ -8,7 +8,7 @@
 [ext_resource path="res://objects/RoundBomb.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/StoneBlock.tscn" type="PackedScene" id=7]
 
-[node name="LevelTest" type="Node2D"]
+[node name="LevelTest" type="Node2D" index="0"]
 
 [node name="Background" type="TextureRect" parent="." index="0"]
 
@@ -37,7 +37,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Ball" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 626.493, 150.086 )
+position = Vector2( 597.493, 154.086 )
 bounce = 0.4
 contacts_reported = 5
 contact_monitor = true
@@ -58,9 +58,8 @@ scale = Vector2( 0.847879, 0.920804 )
 
 [node name="StonePillar3" parent="." index="6" instance=ExtResource( 5 )]
 
-position = Vector2( 625.159, 200.825 )
+position = Vector2( 690.159, 206.825 )
 rotation = 1.5708
-scale = Vector2( 0.847879, 0.364485 )
 
 [node name="RoundBomb" parent="." index="7" instance=ExtResource( 6 )]
 
